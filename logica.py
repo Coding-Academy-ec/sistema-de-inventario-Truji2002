@@ -16,6 +16,7 @@ def agregar_producto(nombre, precio, existencias):
 def actualizar_existencias(id_producto, nuevas_existencias):
     # Función para actualizar las existencias de un producto en la base de datos
     conn = conectar()
+    cursor = conn.cursor()
     # Crear un cursor para ejecutar consultas
     cursor.execute("UPDATE productos SET existencias = ? WHERE id = ?", (nuevas_existencias, id_producto))
     # Confirmar los cambios
